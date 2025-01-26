@@ -4,11 +4,11 @@
 #define DHTTYPE DHT11
 
 // WiFi and MQTT configuration
-const char* WIFI_SSID = "Annathe";
-const char* WIFI_PASSWORD = "aiskosongkurangmanis";
-const char* MQTT_SERVER = "35.232.18.76";
-const char* MQTT_TOPIC = "iot/weather";
-const int MQTT_PORT = 1883;
+const char* WIFI_SSID = "Annathe";        //wifi name
+const char* WIFI_PASSWORD = "aiskosongkurangmanis"; //wifi password
+const char* MQTT_SERVER = "34.31.221.19"; //VM instance's external IP
+const char* MQTT_TOPIC = "iot";           //topic name
+const int MQTT_PORT = 8883;               //mqtt port num
 
 // Sensor pins
 const int dht11Pin = 42;  // DHT11 sensor pin
@@ -71,11 +71,10 @@ void loop() {
   }
 
   // Read Rain sensor data
-  int rainValue = digitalRead(rainPin);
-  const char* rainStatus = (rainValue == HIGH) ? "No Rain" : "Rain Detected";
+  int rainValue = !digitalRead(rainPin);
 
   // Prepare and send MQTT message
-  sprintf(buffer, "Temperature: %.2f °C, Humidity: %.2f %%, Rain: %s", temperature, humidity, rainStatus);
+  sprintf(buffer, "Temperature: %.2f °C, Humidity: %.2f %%, Rain: %d", temperature, humidity, rainValue);
   client.publish(MQTT_TOPIC, buffer);
   Serial.println(buffer);
 
