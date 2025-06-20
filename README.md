@@ -59,8 +59,8 @@ The solution is designed in five layers:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/mugunthantypical/CPC357-Assignment-2.git
-   cd CPC357-Assignment-2
+   git clone https://github.com/mugunthantypical/IoT-Smart-Application-using-GCP-Platform.git
+   cd IoT-Smart-Application-using-GCP-Platform
    ```
 
 2. **Set up your Arduino hardware:**
@@ -99,11 +99,10 @@ The solution is designed in five layers:
 ## Project Structure
 
 ```
-CPC357-Assignment-2/
+IoT-Smart-Application-using-GCP-Platform/
+├── IoT-SmartApp-Report.pdf   # Project report and Guidelines
 ├── arduino-code.ino          # Microcontroller sensor script
 ├── mongo-bq.py               # Python script to ingest MQTT data and upload to BigQuery
-├── service-account-key.json  # GCP credentials (user-provided)
-├── IoT-SmartApp-Report.pdf   # Project report and Guidelines
 ├── README.md                 # Project documentation
 ```
 
